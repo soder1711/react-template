@@ -24,6 +24,7 @@ const Single = () => {
         <img src={item.filename} alt={item.title} />
       )}
       <h3>{item.title}</h3>
+      <p>Owner: {item.username}</p>
       <p>{item.description}</p>
       <p>{new Date(item.created_at).toLocaleString('fi-FI')}</p>
       <button onClick={() => navigate(-1)}>Go back</button>

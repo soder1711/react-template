@@ -17,6 +17,7 @@ const MediaRow = ({item}  ) => {
       <td>
         <Link to="/single" state={{item}}>View</Link>
       </td>
+      <td>{item.username}</td>
     </tr>
   );
 };
@@ -32,8 +33,8 @@ MediaRow.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
     created_at: PropTypes.string.isRequired,
+    username: PropTypes.string,
   }).isRequired,
-  setSelectedItem: PropTypes.func.isRequired,
 };
 
 export default MediaRow;
