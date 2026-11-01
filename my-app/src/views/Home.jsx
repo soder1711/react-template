@@ -10,7 +10,6 @@ const Home = () => {
         const json = await fetchData('test.json');
         setMediaArray(json);
       } catch (error) {
-        // network failure, 404, bad JSON, etc. ends up here
         console.error('getMedia failed:', error);
       }
     };
