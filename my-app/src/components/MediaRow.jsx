@@ -1,4 +1,3 @@
-// src/components/MediaRow.jsx
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 
