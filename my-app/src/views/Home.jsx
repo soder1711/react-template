@@ -4,7 +4,7 @@ import {fetchData} from '../utils/fetchData.js';
 
 const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
-
+  console.log("All env:" + import.meta.env)
   useEffect(() => {
     const getMedia = async () => {
       try {
@@ -15,7 +15,7 @@ const Home = () => {
         const mediaWithUsers = await Promise.all(
           media.map(async (item) => {
             const userResult = await fetchData(
-              import.meta.env.VITE_AUTH_API + '/user/' + item.user_id,
+              import.meta.env.VITE_AUTH_API + '/users/' + item.user_id,
             );
 
             return {...item, username: userResult.username};

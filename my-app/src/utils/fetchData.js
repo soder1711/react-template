@@ -15,7 +15,7 @@ const fetchData = async (url, options = {}) => {
     if (json.message) {
       throw new Error(json.message);
     }
-    throw new Error(`Error ${response.status} occured`);
+    throw new Error(`Error ${response.status} occurred`);
   }
   return json;
 };
