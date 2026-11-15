@@ -1,9 +1,12 @@
+import {useUserContext} from '../hooks/contextHooks';
 
 const Logout = () => {
+  const {handleLogout} = useUserContext();
+
   return (
     <div>
       <h1>Logout</h1>
-      <p>Logout coming soon hopefully :D</p>
+      <button onClick={() => handleLogout()}>Logout</button>
     </div>
   );
 };
