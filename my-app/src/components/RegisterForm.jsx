@@ -25,7 +25,7 @@ const RegisterForm = () => {
   );
 
   return (
-    <div className="mx-auto p-8">
+    <div className="mx-auto max-w-80 p-8">
       <h1 className="text-3xl font-bold text-blue-800">Register</h1>
       <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
         <div>
@@ -37,7 +37,7 @@ const RegisterForm = () => {
             value={inputs.username}
             onChange={handleInputChange}
             autoComplete="username"
-            className="mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
+            className="w-full mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
           />
         </div>
         <div>
@@ -49,7 +49,7 @@ const RegisterForm = () => {
             value={inputs.password}
             onChange={handleInputChange}
             autoComplete="new-password"
-            className="mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
+            className="w-full mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
           />
         </div>
         <div>
@@ -61,10 +61,10 @@ const RegisterForm = () => {
             value={inputs.email}
             onChange={handleInputChange}
             autoComplete="email"
-            className="mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
+            className="w-full mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
           />
         </div>
-        <button type="submit" className="mx-140 mt-5 rounded-full bg-emerald-600 px-4 py-2 text-white transition-colors hover:bg-emerald-500">Register</button>
+        <button type="submit" className="mt-5 rounded-full bg-emerald-600 px-4 py-2 text-white transition-colors hover:bg-emerald-500">Register</button>
       </form>
     </div>
   );

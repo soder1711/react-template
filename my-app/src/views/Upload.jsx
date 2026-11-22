@@ -57,7 +57,7 @@ const Upload = () => {
             type="text"
             id="title"
             onChange={handleInputChange}
-            className="mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
+            className="w-full mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
           />
         </div>
         <div>
@@ -67,7 +67,7 @@ const Upload = () => {
             rows={5}
             id="description"
             onChange={handleInputChange}
-            className="mt-1 rounded-2xl border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
+            className="w-full mt-1 rounded-2xl border-2 border-blue-800 bg-white px-4 py-2 focus:outline-none focus:border-emerald-600"
           ></textarea>
         </div>
         <div>
@@ -78,7 +78,7 @@ const Upload = () => {
             id="file"
             accept="image/*, video/*"
             onChange={handleFileChange}
-            className="mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 file:mr-4 file:rounded-full file:border-0 file:bg-emerald-600 file:px-4 file:py-1 file:text-white hover:file:bg-emerald-500"
+            className="w-full mt-1 rounded-full border-2 border-blue-800 bg-white px-4 py-2 file:mr-4 file:rounded-full file:border-0 file:bg-emerald-600 file:px-4 file:py-1 file:text-white hover:file:bg-emerald-500"
           />
         </div>
         <img
@@ -94,7 +94,7 @@ const Upload = () => {
         <button
           type="submit"
           disabled={file && inputs.title.length > 3 ? false : true}
-          className="rounded-full bg-emerald-600 px-4 py-2 text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50"
+          className="self-center rounded-full bg-emerald-600 px-3 py-1 text-sm text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Upload
         </button>
