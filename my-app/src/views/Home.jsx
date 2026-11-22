@@ -6,10 +6,10 @@ const Home = () => {
 
   return (
     <>
-      <h2>My Media</h2>
-      <table>
+      <h2 className="text-4xl font-bold text-blue-800">My Media</h2>
+      <table className="mx-5">
         <thead>
-        <tr>
+        <tr className="text-3xl font-bold text-blue-800">
           <th>Thumbnail</th>
           <th>Title</th>
           <th>Description</th>
@@ -20,7 +20,7 @@ const Home = () => {
           <th>Actions</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody className="text-blue-800">
         {mediaArray.map((item) => (
           <MediaRow key={item.media_id} item={item} />
         ))}

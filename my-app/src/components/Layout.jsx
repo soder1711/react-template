@@ -10,8 +10,8 @@ const Layout = () => {
   }, []);
   return (
     <div>
-      <nav>
-        <ul>
+      <nav className=" bg-slate-800 p-4 text-2xl">
+        <ul className="flex flex-wrap items-center justify-center gap-5 *:rounded-full *:bg-emerald-600 *:px-4 *:py-2 *:text-white *:transition-colors hover:*:bg-emerald-500">
           <li>
             <Link to="/">Home</Link>
           </li>
