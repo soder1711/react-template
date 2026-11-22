@@ -11,25 +11,25 @@ const Layout = () => {
   return (
     <div>
       <nav className=" bg-slate-800 p-4 text-2xl">
-        <ul className="flex flex-wrap items-center justify-center gap-5 *:rounded-full *:bg-emerald-600 *:px-4 *:py-2 *:text-white *:transition-colors hover:*:bg-emerald-500">
-          <li>
+        <ul className="flex flex-wrap items-center justify-center gap-5 *:rounded-full *:bg-emerald-600 *:px-4 *:py-2 *:text-white *:transition-colors">
+          <li className="hover:bg-emerald-500">
             <Link to="/">Home</Link>
           </li>
           {user && (
             <>
-              <li>
+              <li className="hover:bg-emerald-500">
                 <Link to="/profile">Profile</Link>
               </li>
-              <li>
+              <li className="hover:bg-emerald-500">
                 <Link to="/upload">Upload</Link>
               </li>
-              <li>
+              <li className="hover:bg-emerald-500">
                <Link to="/logout">Logout</Link>
               </li>
             </>
           )}
           {!user && (
-            <li>
+            <li className="hover:bg-emerald-500">
               <Link to="/login">Login</Link>
             </li>
           )}

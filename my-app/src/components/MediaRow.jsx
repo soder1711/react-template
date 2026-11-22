@@ -1,7 +1,37 @@
-import {Link} from 'react-router';
+import {Link, useNavigate} from 'react-router';
 import PropTypes from 'prop-types';
+import {useUserContext} from '../hooks/contextHooks';
+import {useMediaRow} from '../hooks/apiHooks';
 
 const MediaRow = ({item}  ) => {
+  const {user} = useUserContext();
+  const canModify = user && (user.user_id === item.user_id || user.role === 'admin');
+  const {deleteMedia, modifyMedia} = useMediaRow();
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      await deleteMedia(item.media_id, token);
+      console.log('delete ok', item);
+      navigate(0);
+    } catch (error) {
+      console.error('delete failed:', error.message);
+    }
+  };
+
+  const handleModify = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const inputs = {title: item.title, description: item.description};
+      await modifyMedia(item.media_id, inputs, token);
+      console.log('modify ok', item);
+      navigate(0);
+    } catch (error) {
+      console.error('modify failed:', error.message);
+    }
+  };
+
   return (
     // TODO: move <tr> element in foreach from Home.jsx here
     <tr>
@@ -14,9 +44,29 @@ const MediaRow = ({item}  ) => {
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
       <td>
-        <Link to="/single" state={{item}}>View</Link>
+        <Link to="/single" state={{item}} className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-white transition-colors hover:bg-emerald-500">View</Link>
       </td>
       <td>{item.username}</td>
+      <td>
+        {canModify && (
+          <>
+            <div className="*:rounded-full *:bg-emerald-600 *:px-4 *:py-2 *:text-white *:transition-colors *:my-2">
+              <button
+                className="hover:bg-emerald-500"
+                onClick={handleModify}
+              >
+                Modify
+              </button>
+              <button
+                className="hover:bg-emerald-500"
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </>
+        )}
+      </td>
     </tr>
   );
 };

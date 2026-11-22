@@ -4,7 +4,6 @@ import {fetchData} from "../utils/fetchData.js";
 
 const useMedia = () => {
   const [mediaArray, setMediaArray] = useState([]);
-  console.log("All env:" + import.meta.env)
   useEffect(() => {
     const getMedia = async () => {
       try {
@@ -57,6 +56,37 @@ const useMedia = () => {
   };
   return {mediaArray, postMedia};
 };
+
+const useMediaRow = () => {
+  const deleteMedia = async (mediaId, token) => {
+    const fetchOptions = {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media/' + mediaId,
+      fetchOptions,
+    );
+  };
+
+  const modifyMedia = async (mediaId, inputs, token) => {
+    const fetchOptions = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify(inputs),
+    };
+    return await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media/' + mediaId,
+      fetchOptions,
+    );
+  };
+  return {deleteMedia, modifyMedia};
+}
 
 const useAuthentication = () => {
   const postLogin = async (inputs) => {
@@ -121,4 +151,4 @@ const useFile = () => {
 }
 
 
-export {useMedia, useAuthentication, useUser, useFile};
+export {useMedia, useAuthentication, useUser, useFile, useMediaRow};
