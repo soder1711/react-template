@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Likes from './Likes.jsx';
 
 const SingleView = (props) => {
   const {item, setSelectedItem} = props;
@@ -12,6 +13,7 @@ const SingleView = (props) => {
     <h3>{item.title}</h3>
     <p>{item.description}</p>
     <p>{new Date(item.created_at).toLocaleString('fi-FI')}</p>
+    <Likes mediaId={item.media_id} />
     <button onClick={() => setSelectedItem(null)}>Close</button>
   </dialog>
 };
